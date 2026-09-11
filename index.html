@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Water is Life Initiative | Clean Water Project</title>
+    <style>
+        /* --- General Reset & Fonts --- */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        body {
+            color: #333;
+            line-height: 1.6;
+            background-color: #f8fafc;
+        }
+
+        /* --- Header & Navigation --- */
+        header {
+            background-color: #ffffff;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+        .nav-container {
+            max-width: 1100px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px;
+        }
+        .logo {
+            font-size: 24px;
+            font-weight: 700;
+            color: #0284c7;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 25px;
+        }
+        nav a {
+            text-decoration: none;
+            color: #475569;
+            font-weight: 600;
+            transition: color 0.3s;
+        }
+        nav a:hover {
+            color: #0284c7;
+        }
+        .btn-nav {
+            background-color: #0284c7;
+            color: white !important;
+            padding: 8px 18px;
+            border-radius: 6px;
+        }
+
+        /* --- Hero Section --- */
+        .hero {
+            background: linear-gradient(rgba(2, 132, 199, 0.85), rgba(15, 23, 42, 0.85)), url('https://images.unsplash.com/photo-1541888946425-d0fbb186a5b3?auto=format&fit=crop&w=1200&q=80') center/cover no-repeat;
+            color: white;
+            text-align: center;
+            padding: 100px 20px;
+        }
+        .hero h1 {
+            font-size: 42px;
+            margin-bottom: 15px;
+            font-weight: 800;
+        }
+        .hero p {
+            font-size: 18px;
+            max-width: 700px;
+            margin: 0 auto 30px auto;
+            opacity: 0.9;
+        }
+        .hero-btns {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+        }
+        .btn-primary {
+            background-color: #0ea5e9;
+            color: white;
+            padding: 12px 28px;
+            text-decoration: none;
+            font-weight: 700;
+            border-radius: 6px;
+            display: inline-block;
+        }
+        .btn-secondary {
+            border: 2px solid white;
+            color: white;
+            padding: 12px 28px;
+            text-decoration: none;
+            font-weight: 700;
+            border-radius: 6px;
+            display: inline-block;
+        }
+
+        /* --- Stats Banner --- */
+        .stats {
+            background-color: #ffffff;
+            padding: 40px 20px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.02);
+        }
+        .stats-container {
+            max-width: 1100px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            text-align: center;
+            gap: 20px;
+        }
+        .stat-item h2 {
+            font-size: 36px;
+            color: #0284c7;
+        }
+        .stat-item p {
+            color: #64748b;
+            font-weight: 600;
+        }
+
+        /* --- Sections General --- */
+        section {
+            padding: 70px 20px;
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+        .section-title {
+            text-align: center;
+            font-size: 32px;
+            color: #0f172a;
+            margin-bottom: 10px;
+        }
+        .section-subtitle {
+            text-align: center;
+            color: #64748b;
+            margin-bottom: 50px;
+        }
+
+        /* --- Grid Layouts --- */
+        .grid-3 {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        .card {
+            background: white;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+            border-top: 4px solid #0284c7;
+        }
+        .card h3 {
+            color: #0f172a;
+            margin-bottom: 15px;
+        }
+
+        /* --- Budget Table --- */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            background: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+        }
+        th, td {
+            padding: 15px;
+            text-align: left;
+            border-bottom: 1px solid #e2e8f0;
+        }
+        th {
+            background-color: #0284c7;
+            color: white;
+        }
+
+        /* --- Form --- */
+        .contact-form {
+            background: white;
+            padding: 40px;
+            border-radius: 8px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+            max-width: 700px;
+            margin: 0 auto;
+        }
+        .form-group {
+            margin-bottom: 20px;
+        }
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+        }
+        .form-group input, .form-group textarea {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #cbd5e1;
+            border-radius: 6px;
+            font-size: 16px;
+        }
+        .btn-submit {
+            background-color: #0284c7;
+            color: white;
+            border: none;
+            padding: 12px 25px;
+            font-weight: 700;
+            border-radius: 6px;
+            cursor: pointer;
+            width: 100%;
+        }
+
+        /* --- Footer --- */
+        footer {
+            background-color: #0f172a;
+            color: white;
+            text-align: center;
+            padding: 30px 20px;
+            margin-top: 50px;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header Navigation -->
+    <header>
+        <div class="nav-container">
+            <a href="#" class="logo">💧 Water is Life</a>
+            <nav>
+                <ul>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#project">The Project</a></li>
+                    <li><a href="#budget">Budget</a></li>
+                    <li><a href="#grant">Grant Inquiry</a></li>
+                    <li><a href="#grant" class="btn-nav">Partner With Us</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" style="max-width: 100%; width: 100%;">
+        <h1>Clean Water for Every Community</h1>
+        <p>The "Water is Life" initiative is dedicated to constructing sustainable, solar-powered water systems to reduce waterborne diseases and empower local families.</p>
+        <div class="hero-btns">
+            <a href="#project" class="btn-primary">View Proposal Summary</a>
+            <a href="#grant" class="btn-secondary">Grant Partner Inquiry</a>
+        </div>
+    </section>
+
+    <!-- Key Metrics Banner -->
+    <div class="stats">
+        <div class="stats-container">
+            <div class="stat-item">
+                <h2>5,000+</h2>
+                <p>Direct Beneficiaries</p>
+            </div>
+            <div class="stat-item">
+                <h2>100%</h2>
+                <p>Solar Powered Infrastructure</p>
+            </div>
+            <div class="stat-item">
+                <h2>0 km</h2>
+                <p>Target Travel Distance to Safe Water</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- About Section -->
+    <section id="about">
+        <h2 class="section-title">About The Initiative</h2>
+        <p class="section-subtitle">Addressing critical water access needs through sustainable engineering and community management.</p>
+        
+        <div class="grid-3">
+            <div class="card">
+                <h3>The Challenge</h3>
+                <p>Our target community currently lacks access to clean, pipe-borne drinking water. Residents must travel long distances to collect untreated water, leading to preventable health complications and loss of economic productivity.</p>
+            </div>
+            <div class="card">
+                <h3>Our Objective</h3>
+                <p>To drill a deep-water borehole, install high-efficiency solar pumps, set up multi-stage filtration systems, and construct public distribution points accessible to homes, schools, and health centers.</p>
+            </div>
+            <div class="card">
+                <h3>Sustainability</h3>
+                <p>We train local maintenance committees and establish community-led upkeep programs to ensure the water infrastructure remains operational for decades without continuous external funding.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Project Breakdown Section -->
+    <section id="project" style="background-color: #f1f5f9; max-width: 100%; width: 100%;">
+        <div style="max-width: 1100px; margin: 0 auto;">
+            <h2 class="section-title">Project Implementation Plan</h2>
+            <p class="section-subtitle">Structured phases designed for measurable impact and complete financial transparency.</p>
+            
+            <div class="grid-3">
+                <div class="card">
+                    <h3>Phase 1: Hydro-Survey & Drilling</h3>
+                    <p>Conducting environmental impact assessments, geophysical surveys, and deep-borehole drilling to access reliable water aquifers.</p>
+                </div>
+                <div class="card">
+                    <h3>Phase 2: Filtration & Power</h3>
+                    <p>Installing high-capacity storage tanks, solar power panels for zero-cost operation, and advanced filtration units.</p>
+                </div>
+                <div class="card">
+                    <h3>Phase 3: Community Access</h3>
+                    <p>Constructing multi-tap public water points, hygiene education workshops, and handing operations over to trained local custodians.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Budget Summary Section -->
+    <section id="budget">
+        <h2 class="section-title">Grant Allocation & Budget Overview</h2>
+        <p class="section-subtitle">Transparent breakdown of project funding requirements.</p>
+        
+        <table>
+            <thead>
+                <tr>
+                    <th>Project Phase</th>
+                    <th>Key Deliverables</th>
+                    <th>Funding Purpose</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><strong>Geophysical Survey & Drilling</strong></td>
+                    <td>Site assessment, deep drilling, casing installation</td>
+                    <td>Infrastructure Base</td>
+                </tr>
+                <tr>
+                    <td><strong>Purification & Storage Systems</strong></td>
+                    <td>10,000L Overhead tanks, multi-stage water filters</td>
+                    <td>Water Quality & Supply</td>
+                </tr>
+                <tr>
+                    <td><strong>Solar Energy & Distribution</strong></td>
+                    <td>Solar array, submersible pumps, multiple tap stations</td>
+                    <td>Sustainable Power</td>
+                </tr>
+                <tr>
+                    <td><strong>Community Governance & Training</strong></td>
+                    <td>Local technician training, sanitation workshops</td>
+                    <td>Long-Term Maintenance</td>
+                </tr>
+            </tbody>
+        </table>
+    </section>
+
+    <!-- Grant Contact Form -->
+    <section id="grant">
+        <h2 class="section-title">Partner & Grant Opportunities</h2>
+        <p class="section-subtitle">Are you a grant maker, NGO representative, or corporate sponsor? Get in touch with our team.</p>
+        
+        <form class="contact-form">
+            <div class="form-group">
+                <label>Organization / Foundation Name</label>
+                <input type="text" placeholder="e.g. Global Water Grant Foundation" required>
+            </div>
+            <div class="form-group">
+                <label>Contact Person</label>
+                <input type="text" placeholder="Your full name" required>
+            </div>
+            <div class="form-group">
+                <label>Email Address</label>
+                <input type="email" placeholder="official@organization.org" required>
+            </div>
+            <div class="form-group">
+                <label>Inquiry Details / Grant Proposal Request</label>
+                <textarea rows="5" placeholder="Share details about grant funding opportunities, RFP guidelines, or partnership requirements..."></textarea>
+            </div>
+            <button type="submit" class="btn-submit">Submit Grant Inquiry</button>
+        </form>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2026 Water is Life Initiative. All Rights Reserved. | Dedicated to Sustainable Community Development</p>
+    </footer>
+
+</body>
+</html>
